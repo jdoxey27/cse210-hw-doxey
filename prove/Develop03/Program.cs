@@ -30,7 +30,7 @@ class Program
 
         while (!scripture.IsCompletelyHidden())
         {
-            Console.Clear();
+
             Console.WriteLine("Scripture Memorizer");
             Console.WriteLine();
             Console.WriteLine(scripture.GetDisplayText());
