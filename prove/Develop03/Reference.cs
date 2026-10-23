@@ -1,5 +1,4 @@
-
-using System.Diagnostics.Contracts;
+using System;
 
 public class Reference
 {
@@ -7,6 +6,14 @@ public class Reference
     private int _chapter;
     private int _startVerse;
     private int _endVerse;
+
+    public Reference(string book, int chapter, int verse)
+    {
+        _book = book;
+        _chapter = chapter;
+        _startVerse = verse;
+        _endVerse = verse;
+    }
 
     public Reference(string book, int chapter, int startVerse, int endVerse)
     {

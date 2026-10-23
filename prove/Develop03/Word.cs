@@ -12,7 +12,7 @@ public class Word
     }
 
     public void Hide()
-    { 
+    {
         _isHidden = true;
     }
 
@@ -30,5 +30,4 @@ public class Word
 
         return _text;
     }
-
 }

@@ -14,31 +14,31 @@ public class Scripture
         _words = new List<Word>();
         _random = new Random();
 
-        string[] WordTexts = text.Split(
+        string[] wordTexts = text.Split(
             ' ',
             StringSplitOptions.RemoveEmptyEntries
         );
 
-        foreach (string WordText in WordTexts)
+        foreach (string wordText in wordTexts)
         {
-            _words.Add(new Word(WordText));
+            _words.Add(new Word(wordText));
         }
     }
 
     public void HideRandomWords(int count)
     {
-        List<Word> VisibleWords = _words
+        List<Word> visibleWords = _words
             .Where(word => !word.IsHidden())
             .ToList();
 
-        int WordsToHide = Math.Min(count, VisibleWords.Count);
+        int wordsToHide = Math.Min(count, visibleWords.Count);
 
-        for (int i = 0; i < WordsToHide; i++)
+        for (int i = 0; i < wordsToHide; i++)
         {
-            int index = _random.Next(VisibleWords.Count);
-            VisibleWords[index].Hide();
-            VisibleWords.RemoveAt(index);
-        }    
+            int index = _random.Next(visibleWords.Count);
+            visibleWords[index].Hide();
+            visibleWords.RemoveAt(index);
+        }
     }
 
     public bool IsCompletelyHidden()
@@ -48,11 +48,11 @@ public class Scripture
 
     public string GetDisplayText()
     {
-        string DisplayedWords = string.Join(
+        string displayedWords = string.Join(
             " ",
             _words.Select(word => word.GetDisplayText())
         );
 
-        return $"{_reference.GetDisplayText()} {DisplayedWords}";
+        return $"{_reference.GetDisplayText()} {displayedWords}";
     }
 }
